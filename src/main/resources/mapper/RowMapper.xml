@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hekeda.dao.RowMessageDao">
+    <!--   获取播种信息-->
+    <!--WHERE sowtag like #{sowtag} 实现根据播种标记信息搜索功能-->
+    <select id="getAllRowMessage" resultType="com.hekeda.bean.RowMessage">
+       	SELECT * FROM rowcloud WHERE sowtag like #{sowtag} LIMIT #{pageStart},#{pageSize}
+    </select>
+
+
+
+    <!--    查询所有播种信息-->
+    <select id="getRowCounts" resultType="java.lang.Integer">
+        SELECT count(*) FROM rowcloud
+    </select>
+
+    <!--根据删除播种信息-->
+    <delete id="deleteRow">
+        DELETE FROM rowcloud WHERE id = #{id}
+    </delete>
+
+    <select id="getRowMapData" resultType="com.hekeda.bean.RowMessage">
+       	SELECT * FROM rowcloud
+    </select>
+
+
+</mapper>

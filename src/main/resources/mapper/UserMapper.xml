@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hekeda.dao.UserDao">
+
+
+
+
+    <!--    登录用户-->
+    <select id="getUserByMassage" resultType="com.hekeda.bean.User">
+       	SELECT * FROM easyuser
+       	WHERE username=#{username} AND password=#{password} and state = 1
+    </select>
+
+    <!--    查询所有用户-->
+    <select id="getAllUser" resultType="com.hekeda.bean.User">
+        SELECT * FROM easyuser
+        <if test="username !=null ">
+            WHERE username like #{username}
+        </if>
+        LIMIT #{pageStart},#{pageSize}
+    </select>
+    <!--  查询用户数量  -->
+    <select id="getUserCounts" resultType="java.lang.Integer">
+        SELECT count(*) FROM easyuser
+        <if test="username !=null ">
+            WHERE username like #{username}
+        </if>
+    </select>
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

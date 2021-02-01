@@ -1,0 +1,39 @@
+# mysql
+#spring:
+#  datasource:
+#    #MySQL配置
+#    driverClassName:  com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/easyproject?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
+#    username: root
+#    password: root
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.hekeda.bean
+
+server:
+  port: 9000
+spring:
+  datasource:
+    name: druidDataSourse
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driverClassName:  com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/easyproject?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
+      username: root
+      password: root
+      filters: stat,wall,log4j,config
+      max-active: 100
+      initial-size: 1
+      max-wait: 60000
+      min-idle: 1
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: select 'x'
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-open-prepared-statements: 50
+      max-pool-prepared-statement-per-connection-size: 20
